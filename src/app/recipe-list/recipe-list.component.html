@@ -1,0 +1,25 @@
+<h1>Recipes</h1>
+
+<div>
+  <label id="new-recipe">Recipe name: </label>
+  <input for="new-recipe" #recipeName />
+
+  <button class="add-button" 
+    (click)="add(recipeName.value); 
+    recipeName.value=''">
+    Add Recipe
+  </button>
+</div>
+
+<ul class="recipes">
+  <li *ngFor="let recipe of recipes">
+    <a routerLink="/recipe/{{recipe.id}}">
+      <span class="badge">{{recipe.id}}</span>{{recipe.name}}
+    </a>
+    <button class="delete" 
+      title="delete recipe" 
+      (click)="delete(recipe)">
+      x
+    </button>
+  </li>
+</ul>
